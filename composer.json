@@ -1,0 +1,36 @@
+{
+  "name": "yassir3wad/nova-translatable-slug",
+  "description": "A Laravel Nova field.",
+  "keywords": [
+    "laravel",
+    "nova"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1.0",
+    "mrmonat/nova-translatable": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yassir3wad\\TranslatableSlug\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Yassir3wad\\TranslatableSlug\\FieldServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/yassir3wad/nova-translatable"
+    }
+  ]
+}
