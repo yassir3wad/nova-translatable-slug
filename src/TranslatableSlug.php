@@ -2,12 +2,18 @@
 
 namespace Yassir3wad\TranslatableSlug;
 
-use Laravel\Nova\Element;
 use MrMonat\Translatable\Translatable;
 
 class TranslatableSlug extends Translatable
 {
     public $component = "translatable-slug-field";
+
+    public function __construct($name, $attribute = null, $resolveCallback = null)
+    {
+        parent::__construct($name, $attribute, $resolveCallback);
+        $this->singleLine();
+        $this->slug();
+    }
 
     /**
      * Specify the field that contains the actual slug.
@@ -16,30 +22,11 @@ class TranslatableSlug extends Translatable
      *
      * @return $this
      */
-    public function slug($slugField = 'slug'): Element
+    public function slug($slugField = 'slug')
     {
-        return $this->withMeta([__FUNCTION__ => $slugField]);
-    }
+        $this->withMeta([__FUNCTION__ => $slugField]);
 
-    /**
-     * Create a new field.
-     *
-     * @param string $name
-     * @param string|null $attribute
-     * @param mixed|null $resolveCallback
-     * @return void
-     */
-    public function __construct($name, $attribute = null, $resolveCallback = null)
-    {
-        parent::__construct($name, $attribute, $resolveCallback);
-
-        $locales = array_map(function ($value) {
-            return __($value);
-        }, config('translatable.locales'));
-        $this->withMeta([
-            'locales' => $locales,
-            'indexLocale' => app()->getLocale()
-        ]);
+        return $this;
     }
 
     public function forLang($lang)
