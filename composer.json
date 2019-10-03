@@ -8,7 +8,7 @@
   "license": "MIT",
   "require": {
     "php": ">=7.1.0",
-    "mrmonat/nova-translatable": "dev-master"
+    "mrmonat/nova-translatable": "^2.1"
   },
   "autoload": {
     "psr-4": {
