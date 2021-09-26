@@ -91,9 +91,7 @@
         methods: {
             handleKeydown(event) {
                 if (this.currentLocale === this.field.slug_lang) {
-                    Nova.$emit('field-update-' + this.field.slug, {
-                        value: event.target.value
-                    })
+                  Nova.$emit(this.field.slug + '-value', event.target.value);
                 }
             },
 
